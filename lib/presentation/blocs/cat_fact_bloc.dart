@@ -20,6 +20,7 @@ class CatFactBloc extends Bloc<CatFactEvent, CatFactState> {
     on<CatFactLoadEvent>((event, emit) async {
       try {
         final CatFactModel catFactModel = await _apiClient.getFact();
+        // c
 
         addToBox(catFactModel);
         final String imgUrl = _apiClient.imgUrl();
