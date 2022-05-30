@@ -15,12 +15,16 @@ class _HistoryPageState extends State<HistoryPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          /*automaticallyImplyLeading: false,
+        automaticallyImplyLeading: false,
         leading: IconButton(
-          onPressed: () => context.read<CatFactBloc>().add(CatFactLoadEvent()),
-          icon: Icon(Icons.arrow_back),
-        ),*/
-          ),
+          onPressed: () {
+            context.read<CatFactBloc>().add(CatFactLoadEvent());
+
+            Navigator.of(context).pop();
+          },
+          icon: const Icon(Icons.arrow_back),
+        ),
+      ),
       body: BlocBuilder<CatFactBloc, CatFactState>(
         builder: (BuildContext context, state) {
           if (state is CatFactInitialState) {
